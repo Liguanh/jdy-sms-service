@@ -11,7 +11,7 @@
 <a href="https://packagist.org/packages/overtrue/easy-sms"><img src="https://poser.pugx.org/overtrue/easy-sms/license" alt="License"></a>
 </p>
 
-##特点
+## 特点
 
 - 参考的git_hub上overtrue的easy-sms  [https://github.com/overtrue/easy-sms.git]
 - 支持目前多家服务商不同短信类型[验证码类，通知类，营销类]
@@ -21,7 +21,7 @@
 - 发送接口兼容各种平台，灵活增减服务商对应的类
 - 其他功能还待改进，共勉........
 
-##短信平台通道支持
+## 短信平台通道支持
 
 - 建周[通知类，验证码类]
 - 漫道[营销类]
@@ -31,18 +31,18 @@
 - 大汉三通[验证码类，营销类]
 
 
-##环境要求
+## 环境要求
  
 - PHP >= 5.6
 
-##安装
+## 安装
 
 ```shell
 
 $ composer require "Liguanh/jdy-sms-service"
 ```
 
-##使用步骤
+## 使用步骤
 
 ```未完待续```
 
