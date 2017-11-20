@@ -37,10 +37,12 @@
 
 ##安装
 
-`｀`shell
+```shell
 
 $ composer require "Liguanh/jdy-sms-service"
-`｀`
+```
 
 ##使用步骤
+
+```未完待续```
 
