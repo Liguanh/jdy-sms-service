@@ -102,8 +102,11 @@ class JdySms
     {
         if (isset($this->customCreators[$gateway])) {
 
+            $this->callCustomCreator($gateway);
+
         } else {
             $className = $this->formatGatewayClassName($gateway);
+
 
             //获取对应网关的配置
             $gatewayConfig = $this->config->get("gateways.{$gateway}");
@@ -207,6 +210,7 @@ class JdySms
             $strategy = $this->config->get('default.strategy', OrderStrategy::class);
         }
 
+
         //配置中的策略类不存在，设置默认的策略类
         if (!class_exists($strategy)) {
             $strategy = __NAMESPACE__.'Strategoies\\'.ucfirst($strategy);
@@ -216,6 +220,7 @@ class JdySms
         if (!class_exists($strategy)) {
             throw new InvalidClassException("Unsupported strategy \"{$strategy}\"");
         }
+
         //实例化短信发送测策略类
         if (empty($this->strategies[$strategy]) || !($this->strategies[$strategy] instanceof  StrategyInterface)) {
             $this->strategies[$strategy] = new $strategy($this);

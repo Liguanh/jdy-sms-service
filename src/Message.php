@@ -23,6 +23,11 @@ class Message implements MessageInterface
     /**
      * @var string
      */
+    protected $signature;
+
+    /**
+     * @var string
+     */
     protected $type;
 
     /**
@@ -63,7 +68,6 @@ class Message implements MessageInterface
      */
     public function getMessageType()
     {
-        // TODO: Implement getMessageType() method.
         return $this->type;
     }
 
@@ -73,7 +77,6 @@ class Message implements MessageInterface
      */
     public function getContent()
     {
-        // TODO: Implement getContent() method.
         return $this->content;
     }
 
@@ -83,7 +86,6 @@ class Message implements MessageInterface
      */
     public function getTemplate()
     {
-        // TODO: Implement getTemplate() method.
         return $this->template;
     }
 
@@ -93,7 +95,6 @@ class Message implements MessageInterface
      */
     public function getData()
     {
-        // TODO: Implement getData() method.
         return $this->data;
     }
 
@@ -103,8 +104,16 @@ class Message implements MessageInterface
      */
     public function getGateways()
     {
-        // TODO: Implement getGateways() method.
         return $this->gateways;
+    }
+
+    /**
+     * @desc 返回短信内容的签名
+     * @return string
+     */
+    public function getSignature()
+    {
+        return $this->signature;
     }
 
 }

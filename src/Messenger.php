@@ -47,8 +47,9 @@ class Messenger
      */
     public function send($to, $message, array $gateways = [])
     {
-        //格式化要发送的短信渠道的短信内容，
+        //格式化要发送的短信渠道的短信内容，格式化为Message的实例类
         $message = $this->formatMessage($message);
+
 
         //如果没有传要发送短信的网关，那么取Message类实例化的网关属性的值
         if (empty($gateways)) {
@@ -63,7 +64,7 @@ class Messenger
         //格式化要设置的网关信息
         $gateways = $this->formatGateways($gateways);
 
-        //获取自定义的网关策略
+        //获取自定义的网关策略信息
         $strategyApplyGateways = $this->jdySms->strategy()->apply($gateways);
 
         $results = [];
@@ -71,6 +72,7 @@ class Messenger
         $hasSuccess = false;
 
         foreach ($strategyApplyGateways as $gateway) {
+
             try {
                 $results[$gateway] = [
                     'status' => self::STATUS_SUCCESS,
@@ -130,6 +132,7 @@ class Messenger
     public function formatGateways(array $gateways)
     {
         $formatted = [];
+        //返回JdySms渲染的config实例...
         $config = $this->jdySms->getConfig();
 
         if (empty($gateways)) {
@@ -148,8 +151,8 @@ class Messenger
             //获取全局配置信息
             $globalSettings = $config->get("gateways.{$gateway}", []);
 
-            if (!is_string($gateway) && !empty($globalSettings) && is_array($setting)) {
-                $formatted[$gateway] = array_merge($formatted[$gateway], $setting);
+            if (is_string($gateway) && !empty($globalSettings) && is_array($setting)) {
+                $formatted[$gateway] = array_merge($globalSettings, $setting);
             }
         }
         return $formatted;

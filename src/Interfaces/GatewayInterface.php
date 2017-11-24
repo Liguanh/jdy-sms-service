@@ -19,7 +19,7 @@ interface GatewayInterface
      * @param $to
      * @param MessageInterface $message
      * @param Config $config
-     * @return mixed
+     * @return array
      */
-    public function send($to, MessageInterface $message,  Config $config);
+    public function send($to, MessageInterface $message, Config $config);
 }

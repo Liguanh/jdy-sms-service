@@ -35,27 +35,30 @@ class ExampleTest extends TestCase
             // 可用的网关配置
             'gateways' => [
                 'errorlog' => [
-                    'file' => '/tmp/easy-sms.log',
+                    'file' => '/tmp/jdy-sms.log',
                 ],
-                'yunpian' => [
+                'jianzhou' => [
                     'api_key' => '824f0ff2f71cab52936axxxxxxxxxx',
                 ],
-                'aliyun' => [
-                    'access_key_id' => '',
-                    'access_key_secret' => '',
-                    'sign_name' => '',
-                ],
-                'alidayu' => [
-                    //...
+                'chuanglan' => [
+                    'username'=> 'M3653525',
+                    'password'=>'gHLwj2hmZy4b40',
                 ],
             ],
         ];
 
         $jdySms = new JdySms($config);
 
-        print_r('JdySms实例化类的属性列表:'.PHP_EOL);
-        print_r($jdySms);
+        $return = $jdySms->send('15501191752,18234475430', [
+            'gateways' => ['chuanglan'],
+            'content' => '亲爱的鱼客，您的“老用户回馈红包”还有三天就要到期了，请尽早使用，祝周末愉快, 回复TD退订',
+            'template' => 'SK_TEMDKSK',
+            'data' => [
+                'code' => '112342'
+            ],
+        ]);
 
+        print_r($return);exit;
     }
 
 }
