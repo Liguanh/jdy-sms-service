@@ -38,12 +38,12 @@ class ExampleTest extends TestCase
                     'file' => '/tmp/jdy-sms.log',
                 ],
                 'jianzhou' => [
-                    'username' => 'sdk_notify',
-                    'password' => '20150818',
+                    'username' => '********',
+                    'password' => '*******',
                 ],
                 'chuanglan' => [
-                    'username'=> 'M3653525',
-                    'password'=>'gHLwj2hmZy4b40',
+                    'username'=> '*******',
+                    'password'=>'(*********',
                 ],
             ],
         ];
