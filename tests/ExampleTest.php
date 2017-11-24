@@ -29,7 +29,7 @@ class ExampleTest extends TestCase
 
                 // 默认可用的发送网关
                 'gateways' => [
-                    'yunpian', 'aliyun', 'alidayu',
+                    'jianzhou', 'chuanglan',
                 ],
             ],
             // 可用的网关配置
@@ -38,7 +38,8 @@ class ExampleTest extends TestCase
                     'file' => '/tmp/jdy-sms.log',
                 ],
                 'jianzhou' => [
-                    'api_key' => '824f0ff2f71cab52936axxxxxxxxxx',
+                    'username' => 'sdk_notify',
+                    'password' => '20150818',
                 ],
                 'chuanglan' => [
                     'username'=> 'M3653525',
@@ -49,9 +50,9 @@ class ExampleTest extends TestCase
 
         $jdySms = new JdySms($config);
 
-        $return = $jdySms->send('15501191752,18234475430', [
-            'gateways' => ['chuanglan'],
-            'content' => '亲爱的鱼客，您的“老用户回馈红包”还有三天就要到期了，请尽早使用，祝周末愉快, 回复TD退订',
+        $return = $jdySms->send(15501191752, [
+            'gateways' => ['jianzhou'],
+            'content' => '你的验证码是：344908, 找回密码成功，【九斗鱼】',
             'template' => 'SK_TEMDKSK',
             'data' => [
                 'code' => '112342'

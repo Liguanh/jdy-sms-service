@@ -86,16 +86,16 @@ class Messenger
 
                 $results[$gateway] = [
                     'status' => self::STATUS_ERROR,
-                    'exception' => $e,
+                    'msg' => $e->getMessage(),
                 ];
 
                 continue;
             }
         }
 
-        if (!$hasSuccess) {
+       /* if (!$hasSuccess) {
             throw new NoGatewayAvailableException($results);
-        }
+       }*/
 
         return $results;
     }
