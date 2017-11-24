@@ -42,7 +42,14 @@
 $ composer require "Liguanh/jdy-sms-service"
 ```
 
-## 使用步骤
+## 网关文件创建方法[shell]
 
-```未完待续```
+- 文档根目录manager.sh 是shell执行的主要文件
+- 执行sh mananer.sh 或者 sh manager.sh help 查看当前可用的命令列表
+- 创建自定义的网关文档：`sh manager.sh make_gateway gateway_name`
+- 每个网关都会自动在类名后追加Gateway, 网关的类名尽量符合网关的定义规则
+- 删除网站类: `sh manager.sh rm_gateway gateway_name`
+- 其他功能还在继续跟进中......
+
+## 使用步骤
 

@@ -64,7 +64,7 @@ class $1 extends $gateway_suffix
      * @return array|mixed|string
      * @throws GatewayErrorException
      */
-    public function send(\$to, ${message_class} '\$message', ${config_class} \$config)
+    public function send(\$to, ${message_class} \$message, ${config_class} \$config)
     {
         //TO DO send a simple sms
     }
@@ -79,6 +79,11 @@ function rm_gateway()
 {
     local class_name="$2"
     local file="$gateway_dir/$class_name$gateway_suffix.php"
+
+    if [ -z $class_name ]; then 
+        echo "${RED} The second option can't be empty ${NC}"
+        exit;
+    fi
 
     if [ ! -f "${file}" ]; then
         echo "${RED} Delete faild, The file [$file] is not exists! ${NC}"
